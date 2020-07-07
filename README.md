@@ -16,10 +16,6 @@ from rpy2.robjects import pandas2ri
 import anndata2ri
 ```
 
-    /home/spuccio/miniconda3/envs/scrnseq/lib/python3.6/site-packages/anndata/_core/anndata.py:21: FutureWarning: pandas.core.index is deprecated and will be removed in a future version.  The public classes are available in the top-level namespace.
-      from pandas.core.index import RangeIndex
-
-
 
 ```python
 # Ignore R warning messages
@@ -256,15 +252,15 @@ scrub.plot_histogram()
     Overall doublet rate:
     	Expected   = 6.0%
     	Estimated  = 0.6%
-    Elapsed time: 146.4 seconds
+    Elapsed time: 159.6 seconds
 
 
 
 
 
     (<Figure size 576x216 with 2 Axes>,
-     array([<matplotlib.axes._subplots.AxesSubplot object at 0x7efb9c10f5f8>,
-            <matplotlib.axes._subplots.AxesSubplot object at 0x7efb9a5325c0>],
+     array([<matplotlib.axes._subplots.AxesSubplot object at 0x7f03b155af60>,
+            <matplotlib.axes._subplots.AxesSubplot object at 0x7f03aafeb160>],
            dtype=object))
 
 
@@ -490,7 +486,7 @@ sc.pl.highest_expr_genes(adata, n_top=20)
 ```
 
     normalizing counts per cell
-        finished (0:00:08)
+        finished (0:00:24)
 
 
 
@@ -523,7 +519,7 @@ sc.pl.highest_expr_genes(adata, n_top=20)
 ```
 
     normalizing counts per cell
-        finished (0:00:14)
+        finished (0:00:18)
 
 
 
@@ -548,7 +544,7 @@ sc.pp.highly_variable_genes(adata)
 ```
 
     normalizing counts per cell
-        finished (0:00:17)
+        finished (0:00:16)
 
 
     /home/spuccio/miniconda3/envs/scrnseq/lib/python3.6/site-packages/scanpy/preprocessing/_simple.py:297: UserWarning: Revieved a view of an AnnData. Making a copy.
@@ -577,13 +573,13 @@ sc.pp.highly_variable_genes(adata)
     calculating cell cycle phase
     computing score 'S_score'
         finished: added
-        'S_score', score of gene set (adata.obs) (0:00:07)
+        'S_score', score of gene set (adata.obs) (0:01:18)
     computing score 'G2M_score'
         finished: added
-        'G2M_score', score of gene set (adata.obs) (0:00:07)
+        'G2M_score', score of gene set (adata.obs) (0:00:22)
     -->     'phase', cell cycle phase (adata.obs)
     extracting highly variable genes
-        finished (0:01:09)
+        finished (0:01:12)
     --> added
         'highly_variable', boolean vector (adata.var)
         'means', float vector (adata.var)
@@ -609,15 +605,15 @@ sc.tl.umap(adata, random_state = 100)
 
         on highly variable genes
     computing PCA with n_comps = 50
-        finished (0:00:23)
+        finished (0:00:26)
     computing neighbors
         using 'X_pca' with n_pcs = 30
         finished: added to `.uns['neighbors']`
         'distances', distances for each pair of neighbors
-        'connectivities', weighted adjacency matrix (0:00:25)
+        'connectivities', weighted adjacency matrix (0:00:28)
     computing UMAP
         finished: added
-        'X_umap', UMAP coordinates (adata.obsm) (0:01:15)
+        'X_umap', UMAP coordinates (adata.obsm) (0:01:21)
 
 
 ## Visualization
@@ -687,15 +683,15 @@ sc.tl.louvain(adata, resolution=0.4, key_added='louvain_r0.4', random_state=10,u
     running Louvain clustering
         using the "louvain" package of Traag (2017)
         finished: found 29 clusters and added
-        'louvain_r0.8', the cluster labels (adata.obs, categorical) (0:00:17)
+        'louvain_r0.8', the cluster labels (adata.obs, categorical) (0:00:18)
     running Louvain clustering
         using the "louvain" package of Traag (2017)
         finished: found 27 clusters and added
-        'louvain_r0.6', the cluster labels (adata.obs, categorical) (0:00:15)
+        'louvain_r0.6', the cluster labels (adata.obs, categorical) (0:00:17)
     running Louvain clustering
         using the "louvain" package of Traag (2017)
         finished: found 22 clusters and added
-        'louvain_r0.4', the cluster labels (adata.obs, categorical) (0:00:13)
+        'louvain_r0.4', the cluster labels (adata.obs, categorical) (0:00:18)
 
 
 
@@ -847,7 +843,7 @@ sc.tl.rank_genes_groups(adata, 'cluster_cd45', method='t-test',key_added='rank_g
         'scores', sorted np.recarray to be indexed by group ids
         'logfoldchanges', sorted np.recarray to be indexed by group ids
         'pvals', sorted np.recarray to be indexed by group ids
-        'pvals_adj', sorted np.recarray to be indexed by group ids (0:01:08)
+        'pvals_adj', sorted np.recarray to be indexed by group ids (0:01:09)
 
 
 
@@ -1680,7 +1676,7 @@ sc.pp.regress_out(adata_subset, ['n_counts'])
 ```
 
     regressing out ['n_counts']
-        finished (0:01:48)
+        finished (0:01:53)
 
 
 
@@ -1739,7 +1735,7 @@ sc.tl.rank_genes_groups(adata_subset, 'louvain_r0.4_entero_sub', method='wilcoxo
         'scores', sorted np.recarray to be indexed by group ids
         'logfoldchanges', sorted np.recarray to be indexed by group ids
         'pvals', sorted np.recarray to be indexed by group ids
-        'pvals_adj', sorted np.recarray to be indexed by group ids (0:00:15)
+        'pvals_adj', sorted np.recarray to be indexed by group ids (0:00:17)
 
 
 
@@ -2537,7 +2533,7 @@ sb.heatmap(cell_annotation_norm, cbar=True, annot=True,ax=ax)
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7efb06c09da0>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f0313695e80>
 
 
 
@@ -2560,27 +2556,1145 @@ adata_CD45_CD3_clean = adata[adata.obs['louvain_r0.4_entero_sub'].isin(['CCD45+/
 adata_sub = adata[adata.obs['louvain_r0.4_entero_sub'].isin(['Tumor_C1','Tumor_C2','CD45+/CD3E+,0','CD45+/CD3E+,1','CD45+/CD3E+,2','CD45+/CD3E+,3','CD45+/CD3E+,4','CD45+/CD3E+,5','CD45+/CD3E+,6','CD45+/CD3E+,7','CD45+/CD3E+,8','CD45+']),:]
 ```
 
+
+```python
+adata_tumor = adata[adata.obs['louvain_r0.4_entero_sub'].isin(['Tumor_C1','Tumor_C2',]),:]
+```
+
 # UMAP Visualization 
 
 
 ```python
-rcParams['figure.figsize'] = 8, 8
-sc.pl.umap(adata_sub, color=['louvain_r0.4_entero_sub'],s=50)
+adata_subset = adata[adata.obs['cluster_cd45'].isin(['Tumor_C1', 'Tumor_C2'])]
 ```
 
 
-![png](output_93_0.png)
+```python
+adata_subset.obs['cluster_cd45']
+```
+
+
+
+
+    barcode
+    GSM4147093_AAACCTGCAGATAATG-1    Tumor_C1
+    GSM4147093_AAACCTGGTAAGTGTA-1    Tumor_C2
+    GSM4147093_AAACCTGGTAGCGCTC-1    Tumor_C1
+    GSM4147093_AAACCTGGTCAAGCGA-1    Tumor_C1
+    GSM4147093_AAACCTGTCAAGATCC-1    Tumor_C1
+                                       ...   
+    GSM4147101_TTTGTCAAGATGCCTT-1    Tumor_C2
+    GSM4147101_TTTGTCAAGCGTGTCC-1    Tumor_C2
+    GSM4147101_TTTGTCAGTAGATTAG-1    Tumor_C1
+    GSM4147101_TTTGTCATCAAGGCTT-1    Tumor_C1
+    GSM4147101_TTTGTCATCATGTAGC-1    Tumor_C2
+    Name: cluster_cd45, Length: 48864, dtype: category
+    Categories (2, object): [Tumor_C1, Tumor_C2]
+
 
 
 
 ```python
 rcParams['figure.figsize'] = 8, 8
-sc.pl.umap(adata_sub, color=['cluster_cd45'],s=50,legend_loc='on data')
+sc.pl.umap(adata, color=['cluster_cd45'],legend_loc='on data',s=50)
 ```
 
 
-![png](output_94_0.png)
+![png](output_96_0.png)
 
+
+## Select Tumor Clustering
+
+
+```python
+rcParams['figure.figsize'] = 8, 8
+sc.pl.umap(adata_subset, color=['cluster_cd45'],s=50,legend_loc='on data')
+```
+
+
+![png](output_98_0.png)
+
+
+## Import NaCL signatures selected from GO
+
+
+```python
+marker_genes = dict()
+marker_genes["GO_SODIUM_CHANNEL_ACTIVITY"]  = ["ASIC1","ASIC2","ASIC3","ASIC4","ASIC5","CACNA1G","CACNA1H","CACNA1I","GRIK1","GRIK2","GRIK3","GRIK4","GRIK5","HCN1","HCN2","HCN3","HCN4","KCNK1","NALCN","PKD2","PKD2L1","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","SCNN1A","SCNN1B","SCNN1D","SCNN1G","SHROOM2","SLC4A11","TPCN1","TRPM2","TRPM5"]
+marker_genes["GO_SODIUM_CHANNEL_COMPLEX"]  = ["CACNA1G","CACNA1H","CACNA1I","GRIK1","GRIK2","GRIK3","GRIK4","GRIK5","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","SCNN1A","SCNN1B","SCNN1G","TRPM4"]
+marker_genes["GO_SODIUM_ION_TRANSMEMBRANE_TRANSPORT"]  = ["ABCB11","ACTN4","ANK3","ANO6","ARF1","ASIC1","ASIC2","ASIC3","ASIC4","ASIC5","ATP12A","ATP1A1","ATP1A2","ATP1A3","ATP1A4","ATP1B1","ATP1B2","ATP1B3","ATP2B4","ATP4A","ATP4B","BPIFA1","CACNA1G","CACNA1H","CACNA1I","CAMK2D","CAV3","CHP1","CNKSR3","CNNM4","COMMD1","DLG1","DMD","DNM2","DRD3","DRD4","FGF12","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HCN1","HCN2","HCN3","HCN4","HECW1","HECW2","KCNK1","KIF5B","KLHL24","NALCN","NEDD4","NEDD4L","NETO1","NETO2","NOS1","OSR1","PCSK9","PKD2","PKD2L1","PRKCE","PTPN3","RANGRF","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","SCNN1A","SCNN1B","SCNN1D","SCNN1G","SHROOM2","SLC12A1","SLC12A2","SLC12A3","SLC17A2","SLC17A3","SLC17A4","SLC17A7","SLC20A1","SLC20A2","SLC23A1","SLC24A1","SLC24A2","SLC24A3","SLC24A4","SLC24A5","SLC28A3","SLC34A1","SLC34A2","SLC34A3","SLC3A2","SLC41A1","SLC4A11","SLC5A10","SLC8A1","SLC8A2","SLC8A3","SLC8B1","SLC9A1","SLC9A2","SLC9A3","SLC9A3R1","SLC9A4","SLC9A5","SLC9A6","SLC9A7","SLC9A8","SLC9A9","SLC9B2","SLC9C1","SLC9C2","SLMAP","SNTA1","STK39","STOM","TESC","TPCN1","TRPM2","TRPM4","TRPM5","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_VOLTAGE_GATED_SODIUM_CHANNEL_ACTIVITY"]  = ["CACNA1G","CACNA1H","CACNA1I","HCN1","HCN2","HCN3","HCN4","PKD2","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","TPCN1"]
+marker_genes["GO_VOLTAGE_GATED_SODIUM_CHANNEL_COMPLEX"]  = ["CACNA1G","CACNA1H","CACNA1I","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A"]
+marker_genes["GO_SODIUM_ION_TRANSPORT"]  = ["CACNA1G","CACNA1H","CACNA1I","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A"]
+marker_genes["GO_SODIUM_ION_TRANSMEMBRANE_TRANSPORTER_ACTIVITY"] = ["ABCB11","ASIC1","ASIC2","ASIC3","ASIC4","ASIC5","ATP12A","ATP1A1","ATP1A2","ATP1A3","ATP1A4","ATP1B1","ATP1B2","ATP1B3","ATP4A","ATP4B","CACNA1G","CACNA1H","CACNA1I","CNNM4","FXYD2","GRIK1","GRIK2","GRIK3","GRIK4","GRIK5","HCN1","HCN2","HCN3","HCN4","KCNK1","MFSD2A","NALCN","PKD2","PKD2L1","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","SCNN1A","SCNN1B","SCNN1D","SCNN1G","SHROOM2","SLC10A1","SLC10A2","SLC10A3","SLC10A4","SLC10A5","SLC10A6","SLC12A1","SLC12A2","SLC12A3","SLC13A1","SLC13A2","SLC13A3","SLC13A4","SLC13A5","SLC17A2","SLC17A3","SLC17A4","SLC17A7","SLC18A1","SLC18A2","SLC1A1","SLC1A2","SLC1A3","SLC1A6","SLC20A1","SLC20A2","SLC22A1","SLC22A3","SLC23A1","SLC23A2","SLC24A1","SLC24A2","SLC24A3","SLC24A4","SLC24A5","SLC28A1","SLC28A2","SLC28A3","SLC34A1","SLC34A2","SLC34A3","SLC38A1","SLC3A2","SLC41A1","SLC4A10","SLC4A11","SLC4A4","SLC4A5","SLC4A7","SLC4A8","SLC4A9","SLC5A1","SLC5A10","SLC5A11","SLC5A12","SLC5A2","SLC5A3","SLC5A4","SLC5A5","SLC5A6","SLC5A7","SLC5A8","SLC5A9","SLC6A1","SLC6A11","SLC6A12","SLC6A13","SLC6A14","SLC6A15","SLC6A16","SLC6A17","SLC6A18","SLC6A19","SLC6A2","SLC6A20","SLC6A3","SLC6A4","SLC6A5","SLC6A6","SLC6A7","SLC6A8","SLC6A9","SLC8A1","SLC8A2","SLC8A3","SLC8B1","SLC9A1","SLC9A2","SLC9A3","SLC9A4","SLC9A5","SLC9A6","SLC9A7","SLC9A8","SLC9A9","SLC9B2","SLC9C1","SLC9C2","TPCN1","TRPM2","TRPM5"]
+marker_genes["GO_BILE_ACID_TRANSMEMBRANE_TRANSPORTER_ACTIVITY"] = ["ABCB11","ABCC3","AKR1C4","CEACAM1","SLC10A1","SLC10A2","SLC10A3","SLC10A4","SLC10A5","SLC10A6","SLC10A7","SLC51A","SLC51B","SLCO1A2","SLCO1B1","SLCO1B3","SLCO1B7","SLCO1C1","SLCO2B1"]
+marker_genes["GO_CELLULAR_RESPONSE_TO_SALT_STRESS"] = ["AKR1B1","AQP1","CAPN3","EFHD1","LETM1","MICU1","SLC12A6","SLC25A23","TRPV4","XRCC5","XRCC6","ZFP36L1"]
+marker_genes["GO_CELLULAR_SODIUM_ION_HOMEOSTASIS"] = ["AGT","AGTR2","ATP12A","ATP1A1","ATP1A2","ATP1A3","ATP1A4","ATP1B1","ATP1B2","ATP1B3","ATP4A","ATP4B","C7","NEDD4L","SLC8A1","SLC9A1","TMPRSS3"]
+marker_genes["GO_CLUSTERING_OF_VOLTAGE_GATED_SODIUM_CHANNELS"] = ["AC020929.1","AGRN","GLDN","MYOC","NFASC","NRCAM","SCLT1"]
+marker_genes["GO_HYPEROSMOTIC_SALINITY_RESPONSE"] = ["AKR1B1","AVP","CLDN1","EFHD1","LETM1","MICU1","MT-CYB","OXT","SLC25A23","TACR3","TRPV4","XRCC5","XRCC6"]
+marker_genes["GO_LIGAND_GATED_SODIUM_CHANNEL_ACTIVITY"] = ["ASIC1","ASIC2","ASIC3","ASIC5","SCNN1A","SCNN1B","SCNN1D","SCNN1G","SHROOM2","TPCN1"]
+marker_genes["GO_NEGATIVE_REGULATION_OF_SODIUM_ION_TRANSMEMBRANE TRANSPORT"] = ["ATP1A2","CAMK2D","COMMD1","DRD3","HECW1","HECW2","NEDD4","NEDD4L","OSR1","PCSK9","PRKCE","SLC9A3R1","STK39"]
+marker_genes["GO_NEGATIVE_REGULATION_OF_SODIUM_ION_TRANSPORT"] = ["ACTN4","AHCYL1","AKT1","ANK3","ARF1","ATP1B1","ATP1B2","ATP1B3","CHP1","CNKSR3","CNTN1","DMD","DNM2","DRD4","FGF12","FXYD1","GLRX","GPD1L","KIF5B","MLLT6","NKX2-5","NOS1","PKP2","PRSS8","SCN1B","SCN3B","SCN4B","SCN5A","SLC9A1","TESC","WNK1","WNK2","WNK3","WNK4"]
+marker_genes["GO_POSITIVE_REGULATION_OF_SODIUM_ION_TRANSMEMBRANE_TRANSPORT"] = ["ACTN4","ANK3","ARF1","ATP1A2","ATP1B1","ATP1B2","ATP1B3","ATP2B4","BPIFA1","CAMK2D","CAV3","CHP1","CNKSR3","COMMD1","DLG1","DMD","DNM2","DRD3","DRD4","FGF12","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HECW1","HECW2","KIF5B","KLHL24","NEDD4","NEDD4L","NETO1","NETO2","NOS1","OSR1","PCSK9","PRKCE","PTPN3","RANGRF","SCN1B","SCN2B","SCN3B","SCN4B","SCN5A","SLC9A1","SLC9A3R1","SLMAP","SNTA1","STK39","STOM","TESC","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_POSITIVE_REGULATION_OF_SODIUM_ION_TRANSMEMBRANE_TRANSPORTER_ACTIVITY"] = ["ACTN4","ANK3","ATP1B1","CHP1","CNKSR3","DMD","DNM2","DRD4","GLRX","KIF5B","SLC9A1","TESC","WNK1","WNK2","WNK3","WNK4"] 
+marker_genes["GO_POSITIVE_REGULATION_OF_SODIUM_ION_TRANSPORT"] = ["ACTN4","AHCYL1","AKT1","ANK3","ARF1","ATP1B1","ATP1B2","ATP1B3","CHP1","CNKSR3","CNTN1","DMD","DNM2","DRD4","FGF12","FXYD1","GLRX","GPD1L","KIF5B","MLLT6","NKX2-5","NOS1","PKP2","PRSS8","SCN1B","SCN3B","SCN4B","SCN5A","SLC9A1","TESC","WNK1","WNK2","WNK3","WNK4"]
+marker_genes["GO_REGULATION_OF_SODIUM_ION_TRANSMEMBRANE_TRANSPORT"] = ["ACTN4","ANK3","ARF1","ATP1A2","ATP1B1","ATP1B2","ATP1B3","ATP2B4","BPIFA1","CAMK2D","CAV3","CHP1","CNKSR3","COMMD1","DLG1","DMD","DNM2","DRD3","DRD4","FGF12","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HECW1","HECW2","KIF5B","KLHL24","NEDD4","NEDD4L","NETO1","NETO2","NOS1","OSR1","PCSK9","PRKCE","PTPN3","RANGRF","SCN1B","SCN2B","SCN3B","SCN4B","SCN5A","SLC9A1","SLC9A3R1","SLMAP","SNTA1","STK39","STOM","TESC","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_REGULATION_OF_SODIUM_ION_TRANSMEMBRANE_TRANSPORTER_ACTIVITY"] = ["ACTN4","ANK3","ATP1A2","ATP1B1","CAMK2D","CAV3","CHP1","CNKSR3","DMD","DNM2","DRD3","DRD4","FGF12","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HECW1","HECW2","KIF5B","KLHL24","NEDD4","NEDD4L","NETO1","NETO2","OSR1","PCSK9","PRKCE","PTPN3","RANGRF","SCN1B","SCN2B","SCN3B","SCN4B","SLC9A1","SLC9A3R1","SLMAP","STK39","STOM","TESC","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_REGULATION_OF_SODIUM_ION_TRANSPORT"] = ["AC020929.1","ACTN4","ADRB2","AHCYL1","AKT1","ANK3","ARF1","ATP1A1","ATP1A2","ATP1B1","ATP1B2","ATP1B3","ATP2B4","BPIFA1","CAMK2D","CAV3","CHP1","CNKSR3","CNTN1","COMMD1","DLG1","DMD","DMPK","DNM2","DRD2","DRD3","DRD4","FGF12","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HECW1","HECW2","KIF5B","KLHL24","MLLT6","NEDD4","NEDD4L","NETO1","NETO2","NKAIN1","NKAIN2","NKAIN3","NKAIN4","NKX2-5","NOS1","NOS3","OSR1","P2RX4","P2RX7","PCSK9","PER1","PKP2","PRKCE","PRSS8","PTPN3","RANGRF","SCN1B","SCN2B","SCN3B","SCN4B","SCN5A","SERPINE2","SIK1","SLC8A1","SLC9A1","SLC9A3R1","SLMAP","SNTA1","STK39","STOM","TESC","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_RESPONSE_TO_SALT_STRESS"] = ["AKR1B1","ANXA7","AQP1","AVP","BAX","BDKRB2","CAPN3","CLDN1","EFHD1","EPO","HSP90AB1","KMO","LETM1","MICU1","MT-CYB","OXT","PAPPA2","SLC12A6","SLC25A23","TACR3","TH","TNF","TP53","TRPV4","XRCC5","XRCC6","ZFP36L1"]
+marker_genes["GO_SODIUM_CHANNEL_REGULATOR_ACTIVITY"] = ["ATP2B4","CAMK2D","CAV3","FGF12","FGF13","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GPD1L","GPLD1","NEDD4","NEDD4L","NOS1","PCSK9","PKP2","PRSS8","PTPN3","RANGRF","RSC1A1","SCLT1","SCN1B","SCN2B","SCN3B","SCN4B","SGK1","SGK2","SGK3","SNTA1","TMPRSS3","YWHAH"]
+marker_genes["GO_SODIUM_DEPENDENT_PHOSPHATE_TRANSPORT"] = ["ATF4","CEBPB","CRY2","SFRP4","SLC17A1","SLC17A7","SLC34A1","SLC34A2","SLC34A3"]
+marker_genes["GO_SODIUM_ION_BINDING"] = ["ATP1A1","ATP1A2","ATP1B1","CAPN3","PDXK","SCN9A","SLC34A2","TDG"]
+marker_genes["GO_SODIUM_ION_IMPORT_ACROSS_PLASMA_MEMBRANE"] = ["HCN2","HCN4","SLC34A1","SLC8A1","SLC9A1","SLC9A2","SLC9A3","SLC9A4","SLC9A5","SLC9A6","SLC9A7","SLC9A9","SLC9C1","SLC9C2","TRPM4"]
+marker_genes["GO_CELLULAR_HYPEROSMOTIC_SALINITY_RESPONSE"] = ["AKR1B1","EFHD1","LETM1","MICU1","SLC25A23","XRCC5","XRCC6"]
+marker_genes["GO_CHLORIDE_CHANNEL_COMPLEX"] = ["ANO1","ANO2","ANO6","BEST1","BEST2","BEST3","BEST4","CFTR","CLCA3P","CLCC1","CLCN1","CLCN2","CLCNKA","CLCNKB","CLDN17","CLDN4","CLIC1","CLIC2","CLIC3","CLIC4","CLIC5","CLIC6","GABRA1","GABRA2","GABRA3","GABRA4","GABRA5","GABRA6","GABRB1","GABRB2","GABRB3","GABRD","GABRE","GABRG1","GABRG2","GABRG3","GABRP","GABRQ","GABRR1","GABRR2","GABRR3","GLRA1","GLRA2","GLRA3","GLRB","PACC1","SLC26A6","TTYH1","TTYH2","TTYH3"]
+marker_genes["GO_CHLORIDE_TRANSMEMBRANE_TRANSPORTER_ACTIVITY"] = ["ANO1","ANO10","ANO2","ANO4","ANO5","ANO6","ANO7","ANO8","ANO9","APOL1","BEST1","BEST2","BEST3","BEST4","BSND","CFTR","CLCA1","CLCA2","CLCA3P","CLCA4","CLCC1","CLCN1","CLCN2","CLCN3","CLCN4","CLCN5","CLCN6","CLCN7","CLCNKA","CLCNKB","CLDN17","CLDN4","CLIC1","CLIC2","CLIC3","CLIC4","CLIC5","CLIC6","FXYD1","FXYD3","GABRA1","GABRA2","GABRA3","GABRA4","GABRA5","GABRA6","GABRB1","GABRB2","GABRB3","GABRD","GABRE","GABRG1","GABRG2","GABRG3","GABRP","GABRQ","GABRR1","GABRR2","GABRR3","GLRA1","GLRA2","GLRA3","GLRB","NMUR2","PACC1","PCYOX1","SLC12A1","SLC12A2","SLC12A3","SLC12A4","SLC12A5","SLC12A6","SLC12A7","SLC12A8","SLC12A9","SLC17A7","SLC18A1","SLC18A2","SLC1A1","SLC1A4","SLC22A1","SLC22A3","SLC26A1","SLC26A10","SLC26A2","SLC26A3","SLC26A4","SLC26A5","SLC26A6","SLC26A7","SLC26A8","SLC26A9","SLC4A1","SLC6A2","SLC6A3","SLC6A4","TTYH1","TTYH2","TTYH3"]
+marker_genes["GO_CHLORIDE_TRANSPORT"] = ["ABCB1","ANO1","ANO10","ANO2","ANO3","ANO4","ANO5","ANO6","ANO7","ANO8","ANO9","APOL1","BEST1","BEST2","BEST3","BEST4","BSND","CA2","CA7","CASR","CFTR","CLCA1","CLCA2","CLCA3P","CLCA4","CLCC1","CLCN1","CLCN2","CLCN3","CLCN4","CLCN5","CLCN6","CLCN7","CLCNKA","CLCNKB","CLDN17","CLDN4","CLIC1","CLIC2","CLIC3","CLIC4","CLIC5","CLIC6","CLNS1A","FXYD1","FXYD3","GABRA1","GABRA2","GABRA3","GABRA4","GABRA5","GABRA6","GABRB1","GABRB2","GABRB3","GABRD","GABRE","GABRG1","GABRG2","GABRG3","GABRP","GABRQ","GABRR1","GABRR2","GABRR3","GLRA1","GLRA2","GLRA3","GLRB","GRM5","NMUR1","NMUR2","P2RY4","P2RY6","PACC1","PCYOX1","PRKG2","PRNP","PTAFR","SLC12A1","SLC12A2","SLC12A3","SLC12A4","SLC12A5","SLC12A6","SLC12A7","SLC12A8","SLC12A9","SLC17A7","SLC1A1","SLC1A3","SLC1A4","SLC26A1","SLC26A10","SLC26A2","SLC26A3","SLC26A4","SLC26A5","SLC26A6","SLC26A7","SLC26A8","SLC26A9","SLC4A1","SLC4A10","TSPO","TTYH1","TTYH2","TTYH3","WNK4"]
+marker_genes["GO_SODIUM_ION_TRANSPORT"] = ["ABCB11","AC020929.1","ACTN4","ADRB2","AHCYL1","AKT1","ANK3","ANO6","ARF1","ASIC1","ASIC2","ASIC3","ASIC4","ASIC5","ATP12A","ATP1A1","ATP1A2","ATP1A3","ATP1A4","ATP1B1","ATP1B2","ATP1B3","ATP2B4","ATP4A","ATP4B","ATP6V1B1","BPIFA1","CACNA1G","CACNA1H","CACNA1I","CAMK2D","CATSPER3","CATSPER4","CAV3","CHP1","CNKSR3","CNNM4","CNTN1","COMMD1","COMMD3","COMMD9","DLG1","DMD","DMPK","DNM2","DRD2","DRD3","DRD4","FGF12","FGF13","FXYD1","FXYD2","FXYD3","FXYD4","FXYD5","FXYD6","FXYD6P3","FXYD7","GLRX","GPD1L","HCN1","HCN2","HCN3","HCN4","HECW1","HECW2","KCNK1","KIF5B","KLHL24","KLHL3","MAGED2","MFSD4B","MLLT6","NALCN","NDUFA9","NEDD4","NEDD4L","NETO1","NETO2","NKAIN1","NKAIN2","NKAIN3","NKAIN4","NKX2-5","NOS1","NOS3","OSR1","P2RX4","P2RX7","PCSK9","PER1","PKD2","PKD2L1","PKP2","PRKCE","PRSS8","PTPN3","RANGRF","SCN10A","SCN11A","SCN1A","SCN1B","SCN2A","SCN2B","SCN3A","SCN3B","SCN4A","SCN4B","SCN5A","SCN7A","SCN8A","SCN9A","SCNN1A","SCNN1B","SCNN1D","SCNN1G","SERPINE2","SGK1","SHROOM2","SIK1","SLC10A1","SLC10A2","SLC10A4","SLC10A5","SLC10A6","SLC10A7","SLC12A1","SLC12A2","SLC12A3","SLC13A1","SLC13A2","SLC13A3","SLC13A4","SLC13A5","SLC17A1","SLC17A2","SLC17A3","SLC17A4","SLC17A6","SLC17A7","SLC17A8","SLC20A1","SLC20A2","SLC22A4","SLC22A5","SLC23A1","SLC23A2","SLC24A1","SLC24A2","SLC24A3","SLC24A4","SLC24A5","SLC28A3","SLC34A1","SLC34A2","SLC34A3","SLC38A1","SLC38A10","SLC38A11","SLC38A2","SLC38A3","SLC38A4","SLC38A6","SLC38A7","SLC38A8","SLC3A2","SLC41A1","SLC4A10","SLC4A11","SLC4A4","SLC4A5","SLC4A7","SLC4A8","SLC5A1","SLC5A10","SLC5A11","SLC5A12","SLC5A2","SLC5A3","SLC5A4","SLC5A5","SLC5A6","SLC5A7","SLC5A8","SLC5A9","SLC6A15","SLC6A8","SLC8A1","SLC8A2","SLC8A3","SLC8B1","SLC9A1","SLC9A2","SLC9A3","SLC9A3R1","SLC9A4","SLC9A5","SLC9A6","SLC9A7","SLC9A8","SLC9A9","SLC9B1","SLC9B1P1","SLC9B2","SLC9C1","SLC9C2","SLMAP","SNTA1","STK39","STOM","TESC","TPCN1","TRPM2","TRPM4","TRPM5","UTRN","WNK1","WNK2","WNK3","WNK4","YWHAH"]
+marker_genes["GO_ANION_SODIUM_SYMPORTER_ACTIVITY"] = ["ANO1","ANO10","ANO2","ANO4","ANO5","ANO6","ANO7","ANO8","ANO9","APOL1","BEST1","BEST2","BEST3","BEST4","BSND","CFTR","CLCA1","CLCA2","CLCA3P","CLCA4","CLCC1","CLCN1","CLCN2","CLCN3","CLCN4","CLCN5","CLCN6","CLCN7","CLCNKA","CLCNKB","CLDN17","CLDN4","CLIC1","CLIC2","CLIC3","CLIC4","CLIC5","CLIC6","FXYD1","FXYD3","GABRA1","GABRA2","GABRA3","GABRA4","GABRA5","GABRA6","GABRB1","GABRB2","GABRB3","GABRD","GABRE","GABRG1","GABRG2","GABRG3","GABRP","GABRQ","GABRR1","GABRR2","GABRR3","GLRA1","GLRA2","GLRA3","GLRB","NMUR2","PACC1","PCYOX1","SLC12A1","SLC12A2","SLC12A3","SLC12A4","SLC12A5","SLC12A6","SLC12A7","SLC12A8","SLC12A9","SLC17A7","SLC18A1","SLC18A2","SLC1A1","SLC1A4","SLC22A1","SLC22A3","SLC26A1","SLC26A10","SLC26A2","SLC26A3","SLC26A4","SLC26A5","SLC26A6","SLC26A7","SLC26A8","SLC26A9","SLC4A1","SLC6A2","SLC6A3","SLC6A4","TTYH1","TTYH2","TTYH3"]
+marker_genes["GO_HYPEROSMOTIC_RESPONSE"] = ["AKR1B1","AQP1","ARHGEF2","AVP","CLDN1","EFHD1","EPO","ERRFI1","HNMT","ICOSLG","LETM1","MAPK10","MICU1","MT-CYB","OXT","PDPK1","PKN1","RCSD1","SLC12A2","SLC25A23","SLC2A1","SST","TACR3","TLR3","TRPV4","XRCC5","XRCC6","YBX3"]
+marker_genes["GO_INORGANIC_ION_IMPORT_ACROSS_PLASMA_MEMBRANE"] = ["ABCC9","ATP12A","ATP1A1","ATP1A2","ATP1A3","ATP1A4","ATP1B1","ATP1B2","ATP1B3","ATP2B4","ATP4A","ATP4B","CACNA2D1","CALCR","CNGA3","DLG1","FAM155A","FAM155B","FXYD2","FYN","HCN2","HCN4","HFE","IFNG","ISCU","KCNE2","KCNH2","KCNJ1","KCNJ10","KCNJ11","KCNJ12","KCNJ13","KCNJ14","KCNJ15","KCNJ16","KCNJ18","KCNJ2","KCNJ3","KCNJ4","KCNJ5","KCNJ6","KCNJ8","KCNJ9","KCNK5","KCNK9","MIR210","PRNP","RAMP3","SLC12A1","SLC12A2","SLC12A3","SLC12A4","SLC12A5","SLC12A6","SLC12A7","SLC12A8","SLC12A9","SLC30A1","SLC31A1","SLC34A1","SLC39A10","SLC39A12","SLC39A14","SLC39A4","SLC39A5","SLC39A6","SLC39A8","SLC8A1","SLC8A3","SLC9A1","SLC9A2","SLC9A3","SLC9A4","SLC9A5","SLC9A6","SLC9A7","SLC9A9","SLC9C1","SLC9C2","TRPM2","TRPM4","TRPV1","TRPV5","TRPV6","WNK1","WNK2","WNK3","WNK4"]
+marker_genes["GO_LEUKOCYTE_MIGRATION"] = ["ABR","AC093012.1","ADA","ADAM10","ADAM17","ADAM8","ADD2","ADGRE2","ADORA1","ADTRP","AGER","AIF1","AIMP1","AIRE","AKIRIN1","AKT1","ANGPT1","ANGPT2","ANGPT4","ANO6","ANXA1","APOB","APOD","APP","ARHGEF5","ARTN","ATP1B1","ATP1B2","ATP1B3","AZU1","B4GALT1","BCR","BDKRB1","BMP5","BSG","BST1","C10orf99","C1QBP","C3AR1","C5","C5AR1","C5AR2","CALCA","CALR","CAMK1D","CAV1","CCL1","CCL11","CCL13","CCL14","CCL15","CCL16","CCL17","CCL18","CCL19","CCL2","CCL20","CCL21","CCL22","CCL23","CCL24","CCL25","CCL26","CCL27","CCL28","CCL3","CCL3L1","CCL3L3","CCL4","CCL5","CCL7","CCL8","CCN3","CCR1","CCR2","CCR5","CCR6","CCR7","CD177","CD2","CD200","CD200R1","CD244","CD300A","CD300H","CD34","CD44","CD47","CD48","CD58","CD74","CD81","CD84","CD9","CD99","CD99L2","CDC42","CEACAM1","CEACAM3","CEACAM5","CEACAM6","CEACAM8","CH25H","CHGA","CKLF","CMKLR1","CNR2","COL1A1","COL1A2","CORO1A","CREB3","CRK","CRKL","CSF1","CSF3R","CX3CL1","CX3CR1","CXADR","CXCL1","CXCL10","CXCL11","CXCL12","CXCL13","CXCL14","CXCL16","CXCL17","CXCL2","CXCL3","CXCL5","CXCL6","CXCL8","CXCL9","CXCR1","CXCR2","CXCR3","CXCR4","CXCR5","CYP19A1","CYP7B1","DAPK2","DBH","DDT","DEFA1","DEFA1B","DEFB104A","DEFB104B","DOCK8","DOK2","DUSP1","DYSF","ECM1","EDN1","EDN2","EDN3","EDNRB","ELANE","EMILIN1","EPCAM","EPS8","EPX","ESAM","F11R","F2","F2RL1","F7","FADD","FCAMR","FCER1G","FER","FFAR2","FLT1","FN1","FOXJ1","FPR2","FUT7","FYN","GAS6","GATA3","GBF1","GCNT1","GCSAM","GCSAML","GLG1","GOLPH3","GP6","GPC1","GPR15","GPR18","GPR183","GPSM3","GRB14","GRB2","GRB7","GREM1","GYPA","GYPB","GYPC","H2BC1","HCK","HMGB1","HMOX1","HOXA7","HRH1","HSD3B7","ICAM1","IGHA1","IGHA2","IGHM","IGHV1-69","IGHV1OR15-1","IGHV2-5","IGHV2-70","IGHV3-11","IGHV3-13","IGHV3-23","IGHV3-30","IGHV3-33","IGHV3-48","IGHV3-53","IGHV3-7","IGHV4-34","IGHV4-39","IGHV4-59","IGKC","IGKV1-12","IGKV1-16","IGKV1-17","IGKV1-39","IGKV1-5","IGKV1D-12","IGKV1D-33","IGKV1D-39","IGKV2-28","IGKV2-29","IGKV2-30","IGKV2-40","IGKV2D-28","IGKV2D-30","IGKV3-15","IGKV3-20","IGKV3D-11","IGKV3D-20","IGKV4-1","IGKV5-2","IGLC1","IGLC2","IGLC3","IGLC6","IGLC7","IGLL1","IGLV1-40","IGLV1-44","IGLV1-47","IGLV1-51","IGLV2-11","IGLV2-14","IGLV2-23","IGLV2-8","IGLV3-1","IGLV3-19","IGLV3-21","IGLV3-25","IGLV3-27","IGLV6-57","IGLV7-43","IL10","IL12A","IL16","IL17A","IL17RA","IL17RC","IL1A","IL1B","IL1F10","IL1R1","IL1RN","IL23A","IL27RA","IL33","IL36A","IL36B","IL36G","IL36RN","IL37","IL6","IL6R","INPP5D","ITGA1","ITGA2","ITGA2B","ITGA3","ITGA4","ITGA5","ITGA6","ITGA9","ITGAL","ITGAM","ITGAV","ITGAX","ITGB1","ITGB2","ITGB3","ITGB7","JAGN1","JAM2","JAM3","JAML","JCHAIN","KARS1","KIT","KITLG","KLRC4-KLRK1","KLRK1","L1CAM","LBP","LCK","LEP","LGALS3","LGALS9","LGMN","LRCH1","LYN","LYST","MADCAM1","MAG","MAPK14","MAPK3","MCOLN2","MDK","MERTK","MIA3","MIF","MIR223","MIR24-1","MIR24-2","MMP1","MMP14","MMP28","MOSPD2","MPP1","MSN","MST1","MST1L","MSTN","MTUS1","MYH9","MYO1G","NBL1","NCKAP1L","NKX2-3","NLRP12","NUP85","OLR1","OXSR1","P2RX4","P2RY12","PADI2","PDE4B","PDE4D","PDGFB","PDGFD","PECAM1","PF4","PF4V1","PGF","PIK3CA","PIK3CB","PIK3CD","PIK3CG","PIK3R1","PIK3R2","PIP5K1C","PLA2G1B","PLA2G7","PLCB1","PLCG1","PLG","PLVAP","PODXL2","PPBP","PPIA","PPIL2","PREX1","PROS1","PRTN3","PSG1","PTAFR","PTGER4","PTK2B","PTN","PTPN11","PTPN6","PTPRO","PYCARD","RAC1","RAC2","RARRES2","RET","RHOA","RHOG","RIPK3","RIPOR2","ROCK1","ROR2","RPS19","S100A12","S100A14","S100A7","S100A8","S100A9","S1PR1","SAA1","SBDS","SCG2","SDC1","SDC2","SDC3","SDC4","SELE","SELENOK","SELL","SELP","SELPLG","SERPINE1","SFTPD","SHC1","SIRPA","SIRPG","SLAMF8","SLC12A2","SLC16A1","SLC16A3","SLC16A8","SLC3A2","SLC7A10","SLC7A11","SLC7A5","SLC7A6","SLC7A7","SLC7A8","SLC7A9","SLC8B1","SLIT2","SMPD3","SOS1","SPN","SPNS2","SRC","STAP1","STAT5B","STK10","STK39","SWAP70","SYK","TAFA4","TBX21","TEK","TGFB1","TGFB2","THBD","THBS1","THBS4","THY1","TIRAP","TMEM102","TNF","TNFRSF10A","TNFRSF10B","TNFRSF10D","TNFRSF11A","TNFRSF14","TNFRSF18","TNFSF11","TNFSF14","TNFSF18","TP53","TREM1","TREM2","TRPM2","TRPM4","TRPV4","UMOD","VAV1","VAV3","VCAM1","VEGFA","VEGFB","VEGFC","VEGFD","VPREB1","VPREB3","WASL","WDR1","WNK1","WNT5A","XCL1","XCL2","XG","YES1","ZAP70","ZNF580","ZP3"]
+marker_genes["GO_LYMPHOCYTE_CHEMOTAXIS"] = ["ADAM10","ADAM17","ADAM8","ADTRP","AIF1","AIRE","AKT1","APOD","APP","ARTN","C10orf99","CCL1","CCL11","CCL13","CCL14","CCL15","CCL16","CCL17","CCL18","CCL19","CCL2","CCL20","CCL21","CCL22","CCL23","CCL24","CCL25","CCL26","CCL27","CCL3","CCL3L1","CCL3L3","CCL4","CCL5","CCL7","CCL8","CCR2","CCR6","CCR7","CD200","CD200R1","CD99","CD99L2","CH25H","CKLF","CRK","CRKL","CX3CL1","CXCL10","CXCL11","CXCL12","CXCL13","CXCL14","CXCL16","CXCR3","CYP7B1","DEFA1","DEFA1B","DOCK8","ECM1","F11R","FADD","GAS6","GATA3","GCSAM","GCSAML","GPR15","GPR183","HSD3B7","ICAM1","IL27RA","ITGA4","ITGAL","ITGB7","JAM2","KLRC4-KLRK1","KLRK1","LRCH1","MADCAM1","MIA3","MSN","MYO1G","OXSR1","PADI2","PIK3CD","PIK3CG","PTK2B","PYCARD","RET","RHOA","RIPK3","RIPOR2","S100A7","S1PR1","SAA1","SELENOK","SLC12A2","SLC8B1","SPN","SPNS2","STK10","STK39","TBX21","TMEM102","TNFRSF14","TNFSF14","WASL","WNK1","WNT5A","XCL1","XCL2","XG","ZAP70"]
+marker_genes["GO_LYMPHOCYTE_MIGRATION"] = ["ADAM10","ADAM17","ADAM8","ADTRP","AIF1","AIRE","AKT1","APOD","APP","ARTN","C10orf99","CCL1","CCL11","CCL13","CCL14","CCL15","CCL16","CCL17","CCL18","CCL19","CCL2","CCL20","CCL21","CCL22","CCL23","CCL24","CCL25","CCL26","CCL27","CCL3","CCL3L1","CCL3L3","CCL4","CCL5","CCL7","CCL8","CCR2","CCR6","CCR7","CD200","CD200R1","CD99","CD99L2","CH25H","CKLF","CRK","CRKL","CX3CL1","CXCL10","CXCL11","CXCL12","CXCL13","CXCL14","CXCL16","CXCR3","CYP7B1","DEFA1","DEFA1B","DOCK8","ECM1","F11R","FADD","GAS6","GATA3","GCSAM","GCSAML","GPR15","GPR183","HSD3B7","ICAM1","IL27RA","ITGA4","ITGAL","ITGB7","JAM2","KLRC4-KLRK1","KLRK1","LRCH1","MADCAM1","MIA3","MSN","MYO1G","OXSR1","PADI2","PIK3CD","PIK3CG","PTK2B","PYCARD","RET","RHOA","RIPK3","RIPOR2","S100A7","S1PR1","SAA1","SELENOK","SLC12A2","SLC8B1","SPN","SPNS2","STK10","STK39","TBX21","TMEM102","TNFRSF14","TNFSF14","WASL","WNK1","WNT5A","XCL1","XCL2","XG","ZAP70"]
+```
+
+# Test 1 - Calculate Gene Overlap
+
+Calculate an overlap score between data-driven marker genes and provided markers (signatures)
+
+Marker gene overlap scores can be quoted as overlap counts, overlap coefficients, or jaccard indices. 
+
+In the command below the overlap score is quoted as overlap counts, so using the intersection of the gene set.
+
+The object used is comprensive of all clusters. 
+
+
+```python
+cell_annotation_norm = sc.tl.marker_gene_overlap(adata_subset,method='overlap_count', marker_genes, key='rank_genes_louvain_r0.4_entero_sub', normalize='reference')
+fig, ax = plt.subplots(figsize=(12,12))
+sb.heatmap(cell_annotation_norm, cbar=True, annot=True,ax=ax)
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f0313fcff60>
+
+
+
+
+![png](output_103_1.png)
+
+
+In the command below the overlap score is quoted as overlap coef, so the size of the intersection divided by the smaller of the size of the two sets.
+
+
+```python
+cell_annotation_norm = sc.tl.marker_gene_overlap(adata_subset,
+                                                 marker_genes,
+                                                 method='overlap_coef',
+                                                 key='rank_genes_louvain_r0.4_entero_sub')
+fig, ax = plt.subplots(figsize=(14,14))
+sb.heatmap(cell_annotation_norm, cbar=True, annot=True,ax=ax)
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f03440a7278>
+
+
+
+
+![png](output_105_1.png)
+
+
+# Testing the Gene Overlap only for Tumor Cluster 
+
+
+```python
+rcParams['figure.figsize'] = 8, 8
+sc.pl.umap(adata_subset, color=['louvain_r0.4','cluster_cd45'],s=50,legend_loc='on data')
+```
+
+
+![png](output_107_0.png)
+
+
+The panel on the left shows the louvain clustering with resolution 0.4 already calculated above. The panel on the right shows the two big clusters defined using the correlation table. 
+
+# Recompute the cluster marker genes 
+
+
+```python
+sc.tl.rank_genes_groups(adata_subset, 'louvain_r0.4', method='wilcoxon',key_added='rank_genes_louvain_r0.4_2',n_genes=1000)
+```
+
+    ranking genes
+        finished: added to `.uns['rank_genes_louvain_r0.4_2']`
+        'names', sorted np.recarray to be indexed by group ids
+        'scores', sorted np.recarray to be indexed by group ids
+        'logfoldchanges', sorted np.recarray to be indexed by group ids
+        'pvals', sorted np.recarray to be indexed by group ids
+        'pvals_adj', sorted np.recarray to be indexed by group ids (0:02:13)
+
+
+## Print the new marker genes 
+
+
+```python
+pd.DataFrame(adata_subset.uns['rank_genes_louvain_r0.4_2']['names']).head(10)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>19</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PRAME</td>
+      <td>HHATL</td>
+      <td>GAPDH</td>
+      <td>TPT1</td>
+      <td>MALAT1</td>
+      <td>SYNPR</td>
+      <td>EEF1A1</td>
+      <td>HPGD</td>
+      <td>EPHX1</td>
+      <td>CHCHD6</td>
+      <td>CRYAB</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KIF21A</td>
+      <td>SPP1</td>
+      <td>ACTB</td>
+      <td>EEF1A1</td>
+      <td>RNF145</td>
+      <td>LINC00518</td>
+      <td>GNB2L1</td>
+      <td>LSM8</td>
+      <td>CTC-340A15.2</td>
+      <td>RAB7A</td>
+      <td>HSP90AA1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LY6E</td>
+      <td>CHCHD10</td>
+      <td>MIF</td>
+      <td>GNB2L1</td>
+      <td>ADAM10</td>
+      <td>EDNRB</td>
+      <td>UBA52</td>
+      <td>PRUNE2</td>
+      <td>TSPAN10</td>
+      <td>MARCKSL1</td>
+      <td>HSPA1A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>INPP4B</td>
+      <td>PFDN5</td>
+      <td>UQCRB</td>
+      <td>FAU</td>
+      <td>SGK1</td>
+      <td>EIF4A2</td>
+      <td>PFDN5</td>
+      <td>RP11-11N9.4</td>
+      <td>PCOLCE</td>
+      <td>KLF10</td>
+      <td>HSPA1B</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BST2</td>
+      <td>GLTSCR2</td>
+      <td>FTL</td>
+      <td>TOMM7</td>
+      <td>LMNA</td>
+      <td>TYRP1</td>
+      <td>FAU</td>
+      <td>SLCO4A1-AS1</td>
+      <td>HACD1</td>
+      <td>LRPAP1</td>
+      <td>HLA-C</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SLC35B2</td>
+      <td>COX4I1</td>
+      <td>PPIA</td>
+      <td>TYRP1</td>
+      <td>NENF</td>
+      <td>HHATL</td>
+      <td>EEF2</td>
+      <td>NSA2</td>
+      <td>IGFBP7</td>
+      <td>ST3GAL6</td>
+      <td>HLA-B</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>SEPHS2</td>
+      <td>SNHG7</td>
+      <td>FTH1</td>
+      <td>ZFAS1</td>
+      <td>MAD1L1</td>
+      <td>MARCKS</td>
+      <td>NACA</td>
+      <td>AKR1B1</td>
+      <td>EGLN3</td>
+      <td>SEC62</td>
+      <td>SAT1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>HLA-A</td>
+      <td>ALKBH7</td>
+      <td>COX6C</td>
+      <td>MLANA</td>
+      <td>MINOS1</td>
+      <td>TEX41</td>
+      <td>TPT1</td>
+      <td>TOMM7</td>
+      <td>CRADD</td>
+      <td>MET</td>
+      <td>WARS</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SPTBN1</td>
+      <td>TAF1D</td>
+      <td>TPI1</td>
+      <td>NACA</td>
+      <td>CEBPB</td>
+      <td>PMEL</td>
+      <td>COX4I1</td>
+      <td>TPT1</td>
+      <td>CA14</td>
+      <td>ASAP1</td>
+      <td>SPESP1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PPFIBP1</td>
+      <td>FAU</td>
+      <td>SDCBP</td>
+      <td>UBA52</td>
+      <td>KLF4</td>
+      <td>TRPM1</td>
+      <td>EEF1B2</td>
+      <td>SORBS1</td>
+      <td>S100A4</td>
+      <td>CCNL1</td>
+      <td>CD74</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## Signatures overlap only for tumor clusters
+
+
+```python
+cell_annotation_norm = sc.tl.marker_gene_overlap(adata_subset, marker_genes, key='rank_genes_louvain_r0.4_2', normalize='reference')
+fig, ax = plt.subplots(figsize=(12,12))
+sb.heatmap(cell_annotation_norm, cbar=True, annot=True,ax=ax)
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f031139f5c0>
+
+
+
+
+![png](output_114_1.png)
+
+
+# Test 2 - Enrichment Analysis 
+
+
+```python
+result = adata_subset.uns['rank_genes_louvain_r0.4_2']
+groups = result['names'].dtype.names
+DEGS = pd.DataFrame(
+    {group + '_' + key[:1]: result[key][group]
+    for group in groups for key in ['names', 'pvals_adj']})
+```
+
+Filter genes with pvalue <0.05
+
+
+```python
+DEGS_ID_0 = DEGS[DEGS['0_p']<0.05]
+DEGS_ID_1 = DEGS[DEGS['1_p']<0.05]
+DEGS_ID_2 = DEGS[DEGS['2_p']<0.05]
+DEGS_ID_3 = DEGS[DEGS['3_p']<0.05]
+DEGS_ID_4 = DEGS[DEGS['4_p']<0.05]
+DEGS_ID_9 = DEGS[DEGS['9_p']<0.05]
+DEGS_ID_10 = DEGS[DEGS['10_p']<0.05]
+DEGS_ID_11 = DEGS[DEGS['11_p']<0.05]
+DEGS_ID_12 = DEGS[DEGS['12_p']<0.05]
+DEGS_ID_13 = DEGS[DEGS['13_p']<0.05]
+DEGS_ID_19 = DEGS[DEGS['19_p']<0.05]
+```
+
+import the package for the enrichment 
+
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sb
+from matplotlib import colors
+from matplotlib import rcParams
+```
+
+define the function for the enrichment
+
+
+```python
+def scale_data_5_75(data):
+    mind = np.min(data)
+    maxd = np.max(data)
+    
+    if maxd == mind:
+        maxd=maxd+1
+        mind=mind-1
+        
+    drange = maxd - mind
+    return ((((data - mind)/drange*0.70)+0.05)*100)
+
+def plot_enrich(data, n_terms=20, save=False):
+    # Test data input
+    if not isinstance(data, pd.DataFrame):
+        raise ValueError('Please input a Pandas Dataframe output by gprofiler.')
+        
+    if not np.all([term in data.columns for term in ['p_value', 'name', 'intersection_size']]):
+        raise TypeError('The data frame {} does not contain enrichment results from gprofiler.'.format(data))
+    
+    data_to_plot = data.iloc[:n_terms,:].copy()
+    data_to_plot['go.id'] = data_to_plot.index
+
+    min_pval = data_to_plot['p_value'].min()
+    max_pval = data_to_plot['p_value'].max()
+    
+    # Scale intersection_size to be between 5 and 75 for plotting
+    #Note: this is done as calibration was done for values between 5 and 75
+    data_to_plot['scaled.overlap'] = scale_data_5_75(data_to_plot['intersection_size'])
+    
+    norm = colors.LogNorm(min_pval, max_pval)
+    sm = plt.cm.ScalarMappable(cmap="cool", norm=norm)
+    sm.set_array([])
+
+    rcParams.update({'font.size': 14, 'font.weight': 'bold'})
+
+    sb.set(style="whitegrid")
+
+    path = plt.scatter(x='recall', y="name", c='p_value', cmap='cool', 
+                       norm=colors.LogNorm(min_pval, max_pval), 
+                       data=data_to_plot, linewidth=1, edgecolor="grey", 
+                       s=[(i+10)**1.5 for i in data_to_plot['scaled.overlap']])
+    ax = plt.gca()
+    ax.invert_yaxis()
+    ax.set_ylabel('')
+    ax.set_xlabel('Gene ratio', fontsize=14, fontweight='bold')
+    ax.xaxis.grid(False)
+    ax.yaxis.grid(True)
+
+    # Shrink current axis by 20%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+    # Get tick marks for this plot
+    #Note: 6 ticks maximum
+    min_tick = np.floor(np.log10(min_pval)).astype(int)
+    max_tick = np.ceil(np.log10(max_pval)).astype(int)
+    tick_step = np.ceil((max_tick - min_tick)/6).astype(int)
+    
+    # Ensure no 0 values
+    if tick_step == 0:
+        tick_step = 1
+        min_tick = max_tick-1
+    
+    ticks_vals = [10**i for i in range(max_tick, min_tick-1, -tick_step)]
+    ticks_labs = ['$10^{'+str(i)+'}$' for i in range(max_tick, min_tick-1, -tick_step)]
+    #Colorbar
+    fig = plt.gcf()
+    cbaxes = fig.add_axes([0.8, 0.15, 0.03, 0.4])
+    cbar = ax.figure.colorbar(sm, ticks=ticks_vals, shrink=0.5, anchor=(0,0.1), cax=cbaxes)
+    cbar.ax.set_yticklabels(ticks_labs)
+    cbar.set_label("Adjusted p-value", fontsize=14, fontweight='bold')
+
+    #Size legend
+    min_olap = data_to_plot['intersection_size'].min()
+    max_olap = data_to_plot['intersection_size'].max()
+    olap_range = max_olap - min_olap
+    
+    #Note: approximate scaled 5, 25, 50, 75 values are calculated
+    #      and then rounded to nearest number divisible by 5
+    size_leg_vals = [np.round(i/5)*5 for i in 
+                          [min_olap, min_olap+(20/70)*olap_range, min_olap+(45/70)*olap_range, max_olap]]
+    size_leg_scaled_vals = scale_data_5_75(size_leg_vals)
+
+    
+    l1 = plt.scatter([],[], s=(size_leg_scaled_vals[0]+10)**1.5, edgecolors='none', color='black')
+    l2 = plt.scatter([],[], s=(size_leg_scaled_vals[1]+10)**1.5, edgecolors='none', color='black')
+    l3 = plt.scatter([],[], s=(size_leg_scaled_vals[2]+10)**1.5, edgecolors='none', color='black')
+    l4 = plt.scatter([],[], s=(size_leg_scaled_vals[3]+10)**1.5, edgecolors='none', color='black')
+
+    labels = [str(int(i)) for i in size_leg_vals]    
+    leg = plt.legend([l1, l2, l3, l4], labels, ncol=1, frameon=False, fontsize=8,
+                     handlelength=1, loc = 'center left', borderpad = 1, labelspacing = 1.4,
+                     handletextpad=2, title='Gene overlap', scatterpoints = 1,  bbox_to_anchor=(-2, 1.5), 
+                     facecolor='black')
+
+    if save:
+        plt.savefig(save, dpi=300, format='png',orientation='landscape',bbox_inches="tight")
+
+    plt.show()
+```
+
+### Execute the enrichment using the GO biological process
+
+
+```python
+#Interpretation of differentially expressed genes in paneth cells - g:profiler
+gp = GProfiler(return_dataframe=True, user_agent='g:GOSt')
+
+
+C0_enrichment = gp.profile(organism='hsapiens',
+                           sources=['GO:BP'],
+                           user_threshold=0.05,
+                           significance_threshold_method='fdr', 
+                           background=adata_subset.var_names.tolist(), 
+                           query=DEGS_ID_0['0_n'].tolist())
+C1_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_1['1_n'].tolist())
+C2_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_2['2_n'].tolist())
+C3_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_3['3_n'].tolist())
+C4_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_4['4_n'].tolist())
+C9_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_9['9_n'].tolist())
+C10_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_10['10_n'].tolist())
+C11_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_11['11_n'].tolist())
+C12_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_12['12_n'].tolist())
+C13_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_13['13_n'].tolist())
+C19_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_subset.var_names.tolist(), 
+                               query=DEGS_ID_19['19_n'].tolist())
+```
+
+
+```python
+#C0_enrichment.head()
+```
+
+
+```python
+C0_enrichment = C0_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C1_enrichment = C1_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C2_enrichment = C2_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C3_enrichment = C3_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C4_enrichment = C4_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C9_enrichment = C9_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C10_enrichment = C10_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C11_enrichment = C11_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C12_enrichment = C12_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C13_enrichment = C13_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C19_enrichment = C19_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+```
+
+
+```python
+pd.set_option("display.max_colwidth", 800)
+C0_enrichment.loc[C0_enrichment['term_size']<200].iloc[:50,:]
+C0_enrichment.loc[C0_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C0_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C1_enrichment.loc[C1_enrichment['term_size']<200].iloc[:50,:]
+C1_enrichment.loc[C1_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C1_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C2_enrichment.loc[C2_enrichment['term_size']<200].iloc[:50,:]
+C2_enrichment.loc[C2_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C2_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C3_enrichment.loc[C3_enrichment['term_size']<200].iloc[:50,:]
+C3_enrichment.loc[C3_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C3_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C4_enrichment.loc[C4_enrichment['term_size']<200].iloc[:50,:]
+C4_enrichment.loc[C4_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C4_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C9_enrichment.loc[C9_enrichment['term_size']<200].iloc[:50,:]
+C9_enrichment.loc[C9_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C9_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C10_enrichment.loc[C10_enrichment['term_size']<200].iloc[:50,:]
+C10_enrichment.loc[C10_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C10_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C11_enrichment.loc[C11_enrichment['term_size']<200].iloc[:50,:]
+C11_enrichment.loc[C11_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C11_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C12_enrichment.loc[C12_enrichment['term_size']<200].iloc[:50,:]
+C12_enrichment.loc[C12_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C12_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C13_enrichment.loc[C13_enrichment['term_size']<200].iloc[:50,:]
+C13_enrichment.loc[C13_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C13_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C19_enrichment.loc[C19_enrichment['term_size']<200].iloc[:50,:]
+C19_enrichment.loc[C19_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C19_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+```
+
+
+```python
+C0_enrichment.loc[C0_enrichment.name.str.contains('salt|sodium|salinity|chloride|hyperosmotic', regex=True)]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>p_value</th>
+      <th>term_size</th>
+      <th>intersection_size</th>
+      <th>recall</th>
+      <th>name</th>
+    </tr>
+    <tr>
+      <th>native</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GO:1902307</th>
+      <td>0.026636</td>
+      <td>20</td>
+      <td>5</td>
+      <td>0.250000</td>
+      <td>positive regulation of sodium ion transmembrane transport</td>
+    </tr>
+    <tr>
+      <th>GO:0071472</th>
+      <td>0.030109</td>
+      <td>13</td>
+      <td>4</td>
+      <td>0.307692</td>
+      <td>cellular response to salt stress</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+C4_enrichment.loc[C4_enrichment.name.str.contains('salt|sodium|salinity|chloride|hyperosmotic', regex=True)]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>p_value</th>
+      <th>term_size</th>
+      <th>intersection_size</th>
+      <th>recall</th>
+      <th>name</th>
+    </tr>
+    <tr>
+      <th>native</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GO:0002028</th>
+      <td>0.025456</td>
+      <td>82</td>
+      <td>11</td>
+      <td>0.134146</td>
+      <td>regulation of sodium ion transport</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+# Cluster 0 and Cluster 4 composition
+
+
+```python
+#adata_magic.obs.groupby(["leiden", "SampleID"]).size().reset_index().plot(kind='bar')
+fig, (ax1) = plt.subplots(1,1, figsize=(33/2.54, 17/2.54))
+ax1 = adata_subset.obs.groupby("louvain_r0.4")["SampleID"].value_counts(normalize=True).mul(100).unstack().plot.bar(stacked=True,legend=False,ax=ax1)
+ax1.set_xlabel("Cluster")
+ax1.set_ylabel("% Frequency")
+ax1.grid(False)
+ax1.legend(bbox_to_anchor=(1.1, 1.0))
+```
+
+
+
+
+    <matplotlib.legend.Legend at 0x7f0311729908>
+
+
+
+
+![png](output_131_1.png)
+
+
+
+```python
+DEGS_ID_0['0_n'].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/signCluster0.txt",index=False,header=False)
+```
+
+
+```python
+DEGS_ID_0['4_n'].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/signCluster4.txt",index=False,header=False)
+```
+
+# Cluster 0 in silico classification 
+
+
+```python
+from IPython.display import Image
+```
+
+## Cancer Cell Line Encyclopedia
+
+
+```python
+Image(filename='/mnt/lugli/SP025_NaClTcell/scranseq_durante/GO/Cancer_Cell_Line_Encyclopedia_bar_graph_C0.png')
+```
+
+
+
+
+![png](output_137_0.png)
+
+
+
+## NCI-60 Cancer Cell Lines
+
+
+```python
+Image(filename='/mnt/lugli/SP025_NaClTcell/scranseq_durante/GO/NCI-60_Cancer_Cell_Lines_bar_graph_C0.png')
+```
+
+
+
+
+![png](output_139_0.png)
+
+
+
+# Cluster 4 in silico classification
+
+
+```python
+Image(filename='/mnt/lugli/SP025_NaClTcell/scranseq_durante/GO/Cancer_Cell_Line_Encyclopedia_bar_graph_C4.png')
+```
+
+
+
+
+![png](output_141_0.png)
+
+
+
+
+```python
+Image(filename='/mnt/lugli/SP025_NaClTcell/scranseq_durante/GO/NCI-60_Cancer_Cell_Lines_bar_graph_C4.png')
+```
+
+
+
+
+![png](output_142_0.png)
+
+
+
+# Cluster rename 
+
+
+```python
+list_old = adata_subset.obs['louvain_r0.4'].tolist()
+```
+
+
+```python
+list_new= list_old
+```
+
+
+```python
+for n, i in enumerate(list_old):
+    if i == '0':
+        list_new[n] = 'Melanoma_Cells_C0'    
+    if i == '1':
+        list_new[n] = 'C1'
+    if i == '2':
+        list_new[n] = 'C2'
+    if i == '3':
+        list_new[n] = 'C3'
+    if i == '4':
+        list_new[n] = 'Melanoma_Cells_C4'
+    if i == '9':
+        list_new[n] = 'C9'
+    if i == '10':
+        list_new[n] = 'C10'
+    if i == '11':
+        list_new[n] = 'C11'
+    if i == '12':
+        list_new[n] = 'C12'
+    if i == '13':
+        list_new[n] = 'C13'
+    if i == '19':
+        list_new[n] = 'C19'
+```
+
+
+```python
+adata_subset.obs['cluster_tumor_type']=list_new
+```
+
+
+```python
+rcParams['figure.figsize'] = 8, 8
+sc.pl.umap(adata_subset, color=['louvain_r0.4','cluster_tumor_type'],s=50,legend_loc='on data')
+```
+
+    ... storing 'cluster_tumor_type' as categorical
+
+
+
+![png](output_148_1.png)
+
+
+# Subclustering cluster 0
+
+
+```python
+adata_melanoma = adata_subset[adata_subset.obs['cluster_tumor_type'].isin(['Melanoma_Cells_C0', 'Melanoma_Cells_C4'])]
+```
+
+
+```python
+#Subcluster 
+sc.tl.louvain(adata_melanoma, resolution=0.2, key_added='louvain_r0.2_Melanoma')
+sc.tl.louvain(adata_melanoma, resolution=0.4, key_added='louvain_r0.4_Melanoma')
+sc.tl.louvain(adata_melanoma, resolution=0.6, key_added='louvain_r0.6_Melanoma')
+sc.tl.louvain(adata_melanoma, resolution=0.8, key_added='louvain_r0.8_Melanoma')
+```
+
+    running Louvain clustering
+        using the "louvain" package of Traag (2017)
+
+
+    Trying to set attribute `.obs` of view, copying.
+
+
+        finished: found 5 clusters and added
+        'louvain_r0.2_Melanoma', the cluster labels (adata.obs, categorical) (0:00:04)
+    running Louvain clustering
+        using the "louvain" package of Traag (2017)
+        finished: found 10 clusters and added
+        'louvain_r0.4_Melanoma', the cluster labels (adata.obs, categorical) (0:00:02)
+    running Louvain clustering
+        using the "louvain" package of Traag (2017)
+        finished: found 11 clusters and added
+        'louvain_r0.6_Melanoma', the cluster labels (adata.obs, categorical) (0:00:02)
+    running Louvain clustering
+        using the "louvain" package of Traag (2017)
+        finished: found 12 clusters and added
+        'louvain_r0.8_Melanoma', the cluster labels (adata.obs, categorical) (0:00:01)
+
+
+
+```python
+rcParams['figure.figsize'] = 8, 8
+sc.pl.umap(adata_melanoma, color=['louvain_r0.2_Melanoma'],s=50)
+```
+
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+    'c' argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with 'x' & 'y'.  Please use a 2-D array with a single row if you really want to specify the same RGB or RGBA value for all points.
+
+
+
+![png](output_152_1.png)
+
+
+
+```python
+sc.tl.rank_genes_groups(adata_melanoma, 'louvain_r0.2_Melanoma', method='wilcoxon',key_added='rank_genes_louvain_r0.2_2',n_genes=1000)
+```
+
+    ranking genes
+        finished: added to `.uns['rank_genes_louvain_r0.2_2']`
+        'names', sorted np.recarray to be indexed by group ids
+        'scores', sorted np.recarray to be indexed by group ids
+        'logfoldchanges', sorted np.recarray to be indexed by group ids
+        'pvals', sorted np.recarray to be indexed by group ids
+        'pvals_adj', sorted np.recarray to be indexed by group ids (0:00:35)
+
+
+
+```python
+cell_annotation_norm = sc.tl.marker_gene_overlap(adata_melanoma,marker_genes,method='overlap_count', key='rank_genes_louvain_r0.2_2', normalize='reference')
+fig, ax = plt.subplots(figsize=(12,12))
+sb.heatmap(cell_annotation_norm, cbar=True, annot=True,ax=ax)
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f02cfe74470>
+
+
+
+
+![png](output_154_1.png)
+
+
+
+```python
+result = adata_melanoma.uns['rank_genes_louvain_r0.2_2']
+groups = result['names'].dtype.names
+DEGS = pd.DataFrame(
+    {group + '_' + key[:1]: result[key][group]
+    for group in groups for key in ['names', 'pvals_adj']})
+```
+
+
+```python
+DEGS_ID_0 = DEGS[DEGS['0_p']<0.05]
+DEGS_ID_1 = DEGS[DEGS['1_p']<0.05]
+DEGS_ID_2 = DEGS[DEGS['2_p']<0.05]
+DEGS_ID_3 = DEGS[DEGS['3_p']<0.05]
+DEGS_ID_4 = DEGS[DEGS['4_p']<0.05]
+```
+
+
+```python
+#Interpretation of differentially expressed genes in paneth cells - g:profiler
+gp = GProfiler(return_dataframe=True, user_agent='g:GOSt')
+
+
+C0_enrichment = gp.profile(organism='hsapiens',
+                           sources=['GO:BP'],
+                           user_threshold=0.05,
+                           significance_threshold_method='fdr', 
+                           background=adata_melanoma.var_names.tolist(), 
+                           query=DEGS_ID_0['0_n'].tolist())
+C1_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_melanoma.var_names.tolist(), 
+                               query=DEGS_ID_1['1_n'].tolist())
+C2_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_melanoma.var_names.tolist(), 
+                               query=DEGS_ID_2['2_n'].tolist())
+C3_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_melanoma.var_names.tolist(), 
+                               query=DEGS_ID_3['3_n'].tolist())
+C4_enrichment = gp.profile(organism='hsapiens', sources=['GO:BP'], user_threshold=0.05,
+                               significance_threshold_method='fdr', 
+                               background=adata_melanoma.var_names.tolist(), 
+                               query=DEGS_ID_4['4_n'].tolist())
+```
+
+
+```python
+C0_enrichment = C0_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C1_enrichment = C1_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C2_enrichment = C2_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C3_enrichment = C3_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+C4_enrichment = C4_enrichment.set_index('native').sort_values('p_value').iloc[:,[2,5,7,10,1]]
+```
+
+
+```python
+C0_enrichment.loc[C0_enrichment.name.str.contains('salt|sodium|salinity|chloride|hyperosmotic', regex=True)]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>p_value</th>
+      <th>term_size</th>
+      <th>intersection_size</th>
+      <th>recall</th>
+      <th>name</th>
+    </tr>
+    <tr>
+      <th>native</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GO:1902307</th>
+      <td>0.038447</td>
+      <td>20</td>
+      <td>5</td>
+      <td>0.25</td>
+      <td>positive regulation of sodium ion transmembrane transport</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+DEGS['0_n'].to_csv("/mnt/lugli/SP025_NaClTcell/scranseq_durante/GO/lastsig.txt",index=False,header=True)
+```
+
+
+```python
+ACTN4
+ATP1B1
+ATP1B2
+DMD
+TESC
+```
+
+
+```python
+pd.set_option("display.max_colwidth", 800)
+C0_enrichment.loc[C0_enrichment['term_size']<200].iloc[:50,:]
+C0_enrichment.loc[C0_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C0sub_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C1_enrichment.loc[C1_enrichment['term_size']<200].iloc[:50,:]
+C1_enrichment.loc[C1_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C1sub_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C2_enrichment.loc[C2_enrichment['term_size']<200].iloc[:50,:]
+C2_enrichment.loc[C2_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C2sub_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C3_enrichment.loc[C3_enrichment['term_size']<200].iloc[:50,:]
+C3_enrichment.loc[C3_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C3sub_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+C4_enrichment.loc[C4_enrichment['term_size']<200].iloc[:50,:]
+C4_enrichment.loc[C4_enrichment['term_size']<200].to_csv("/home/spuccio/isilon/SP025_NaClTcell/scranseq_durante/GO/C4sub_GO_BiologicalProcess.txt",sep="\t",header=True,index=True)
+```
 
 
 ```python
