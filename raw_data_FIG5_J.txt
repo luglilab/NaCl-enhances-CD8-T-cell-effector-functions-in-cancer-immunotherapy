@@ -1,0 +1,13 @@
+DonorA_Gplus_NaCl	DonorC_Gplus_NaCl	DonorB_Gplus_NaCl	DonorA_Gminus_NaCl	DonorC_Gminus_NaCl	DonorB_Gminus_NaCl	DonorB_Gplus_Control	DonorC_Gplus_Control	DonorA_Gplus_Control	DonorC_Gminus_Control	DonorA_Gminus_Control	DonorB_Gminus_Control
+DonorA_Gplus_NaCl	1	0.89	0.89	0.84	0.72	0.76	0.7	0.73	0.77	0.67	0.73	0.71
+DonorC_Gplus_NaCl	0.89	1	0.92	0.82	0.77	0.79	0.74	0.79	0.81	0.73	0.75	0.74
+DonorB_Gplus_NaCl	0.89	0.92	1	0.82	0.76	0.82	0.77	0.78	0.81	0.73	0.75	0.77
+DonorA_Gminus_NaCl	0.84	0.82	0.82	1	0.89	0.91	0.79	0.8	0.81	0.82	0.88	0.86
+DonorC_Gminus_NaCl	0.72	0.77	0.76	0.89	1	0.91	0.85	0.85	0.83	0.89	0.88	0.89
+DonorB_Gminus_NaCl	0.76	0.79	0.82	0.91	0.91	1	0.84	0.82	0.81	0.85	0.87	0.9
+DonorB_Gplus_Control	0.7	0.74	0.77	0.79	0.85	0.84	1	0.9	0.88	0.88	0.84	0.88
+DonorC_Gplus_Control	0.73	0.79	0.78	0.8	0.85	0.82	0.9	1	0.91	0.88	0.84	0.85
+DonorA_Gplus_Control	0.77	0.81	0.81	0.81	0.83	0.81	0.88	0.91	1	0.85	0.84	0.84
+DonorC_Gminus_Control	0.67	0.73	0.73	0.82	0.89	0.85	0.88	0.88	0.85	1	0.91	0.92
+DonorA_Gminus_Control	0.73	0.75	0.75	0.88	0.88	0.87	0.84	0.84	0.84	0.91	1	0.93
+DonorB_Gminus_Control	0.71	0.74	0.77	0.86	0.89	0.9	0.88	0.85	0.84	0.92	0.93	1
