@@ -130,6 +130,7 @@ n <- nrow(tab)
 qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
 col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
 
+# FIGURE 2D
 pdf("FIG2_D.pdf", width = 10, height = 10)
 barplot(tab, beside=TRUE, ylim=c(0, max(tab) + 0.1), col= sample(col_vector, n), legend.text=TRUE, bty = "n")
 dev.off()
@@ -147,7 +148,7 @@ data_cells$desc05_treat <- paste(Idents(data_cells), data_cells$Treatment, sep =
 Idents(object = data_cells) <- "desc05_treat"
 
 # load original umap coordinates
-coord_original <- read.table(file="raw_data_FIG2_C.txt", header= TRUE, stringsAsFactors=FALSE, sep="\t", row.names = 1)
+coord_original <- read.table(file="raw_data_FIG2_B.txt", header= TRUE, stringsAsFactors=FALSE, sep="\t", row.names = 1)
 
 data_cells <- AddMetaData(data_cells, metadata = coord_original)
 head(data_cells@meta.data, 5)
@@ -174,7 +175,8 @@ head(data_cells[["umap"]]@cell.embeddings)
 Idents(data_cells) <- "desc_0.5"
 
 # UMAP split by treatment
-pdf("FIG2_C.pdf", width = 25)
+# FIGURE 2B
+pdf("FIG2_B.pdf", width = 25)
 DimPlot(data_cells, reduction = "umap", split.by="Treatment", label = TRUE)
 dev.off()
 
@@ -215,6 +217,7 @@ results_plot <- results[gene_selected_c4,]
 dim(results_plot)
 # 22  6
 
+# FIGURE 2E
 pdf("FIG2_E.pdf")
 plot(volcano_data$avg_log2FC, -1*log10(volcano_data$p_val_adj), main="Volcano plot Cluster 4", xlab="avg log2FC", ylab="-log10(Adjusted P-Value)", xlim = c(-(round(max(abs(volcano_data$avg_log2FC)))),round(max(abs(volcano_data$avg_log2FC)))))
 points(volcano_data$avg_log2FC[not_sign], -1*log10(volcano_data$p_val_adj[not_sign]), col="gray87")
@@ -241,6 +244,7 @@ colnames(C4_cells_rank) <- c("GeneName","rank")
 
 C4_cells_rank <- as.data.frame(C4_cells_rank)
 
+# FIGURE 2F
 write.table(C4_cells_rank, file="raw_data_FIG2_F.rnk", sep="\t", row.names=FALSE, col.name = TRUE, quote = FALSE)
 
 
@@ -277,7 +281,7 @@ library(clustree)
 Idents(CD8_cells) <- "RNA_snn_res.0.1"
 
 #########################
-# remove cluster 4 della res 0.1 (gamma/delta t cells) 
+# remove cluster 4 from res 0.1 (gamma/delta t cells) 
 #########################
 
 table(CD8_cells$RNA_snn_res.0.1)
@@ -306,6 +310,7 @@ colnames(tab_2H) <- c("dim1","dim2","cluster")
 
 #write.table(tab_2H, "raw_data_FIG2_H.txt", sep="\t", col.name = TRUE, quote = FALSE)
 
+# FIGURE 2H
 pdf("FIG2_H.pdf")
 DimPlot(tcells_clean, reduction = "umap", group.by="RNA_snn_res.0.1", label = TRUE)
 dev.off()
@@ -327,6 +332,7 @@ raw_2I <- raw_2I[,c("Mouse1_NSD","Mouse2_NSD","Mouse4_HSD","Mouse3_HSD")]
 #tab <- read.table(file="raw_data_FIG2_I.txt", header= TRUE, stringsAsFactors=FALSE, sep="\t")
 #tab <- as.matrix(tab)
 
+# FIGURE 2I
 pdf("FIG2_I.pdf", width = 10, height = 10)
 barplot(tab, xlim=c(0, ncol(tab) + 3), col= sample(col_vector, n), legend.text=TRUE, args.legend=list(x=ncol(tab) + 3, y=max(colSums(tab)), bty = "n"))
 dev.off()
@@ -334,8 +340,8 @@ dev.off()
 
 markers <- c("Tox","Tigit","Ctla4","Pdcd1","Havcr2","Entpd1","Mki67","Gzmb","Gzma","Gzmk","Zfp683","Cx3cr1","Tbx21","Klrg1","Ifng","Klrb1c","Nkg7","Runx3","Cd27","Il7r","Ccr7","Sell","Tcf7","Cd69","Itgae")
 
-
-pdf("FIG2_J.pdf", width=13)
+# FIGURE 2L
+pdf("FIG2_L.pdf", width=13)
 DotPlot(tcells_clean, features = markers) + RotatedAxis()
 dev.off()
 
