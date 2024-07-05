@@ -280,7 +280,7 @@ ls -1 *__treat_pileup.bdg > track_files.txt
 
 #########
 
-
+# FIGURE 5K
 ######### Creating a browser track so we can look at the peaks in the UCSC Genome Browser (FIG5_K) #########
 
 lista=/Run/Peaks/track_files.txt
@@ -571,6 +571,8 @@ experiment_counts <- dba.count(experiment, bParallel = TRUE, score = DBA_SCORE_R
 experiment_counts$config$RunParallel <- TRUE
 profiles <- dba.plotProfile(experiment_counts, maxSites = 50000, distanceAround=1000)
 
+# FIGURE 5J
+
 pdf("FIG5_J.pdf", width = 30, height = 30)
 plot(experiment_counts, main="Correlation plot of D5 samples")
 dev.off()
@@ -748,8 +750,9 @@ bedtools getfasta -fi /reference/WholeGenomeFasta/genome.fa -bed /Run/Peaks/Anal
 #########
 
 
-######### Homer TFs Analysis (FIG5_I) #########
+######### Homer TFs Analysis (FIG5_L) #########
 
+# FIGURE 5L
 
 findMotifs.pl /Run/Peaks/Analisys/Gplus_Control_vs_Gplus_NaCl_promoter_peaks_homer_Gplus_NaCl.fa fasta /Run/Peaks/Analisys/Homer/DAR_Gplus_NaCl_promoter_peaks_WithBackground -fasta /Run/Peaks/Analisys/Gplus_Control_vs_Gplus_NaCl_promoter_peaks_homer_Gplus_Control.fa -p 10
 
