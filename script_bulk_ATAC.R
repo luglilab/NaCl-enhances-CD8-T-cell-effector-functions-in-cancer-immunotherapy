@@ -1,4 +1,4 @@
-# Code Figure: 5J, 5K, 5L
+# Code Figure: 5J, 5K, 5I
 
 ###################
 ###################
@@ -752,9 +752,9 @@ bedtools getfasta -fi /reference/WholeGenomeFasta/genome.fa -bed /Run/Peaks/Anal
 #########
 
 
-######### Homer TFs Analysis (FIG5_L) #########
+######### Homer TFs Analysis (FIG5_I) #########
 
-# FIGURE 5L
+# FIGURE 5I
 
 findMotifs.pl /Run/Peaks/Analisys/Gplus_Control_vs_Gplus_NaCl_promoter_peaks_homer_Gplus_NaCl.fa fasta /Run/Peaks/Analisys/Homer/DAR_Gplus_NaCl_promoter_peaks_WithBackground -fasta /Run/Peaks/Analisys/Gplus_Control_vs_Gplus_NaCl_promoter_peaks_homer_Gplus_Control.fa -p 10
 
