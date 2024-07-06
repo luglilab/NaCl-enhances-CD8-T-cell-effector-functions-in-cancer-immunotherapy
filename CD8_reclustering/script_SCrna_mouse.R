@@ -1,4 +1,4 @@
-# Code Figure: 2B, 2D, 2E, 2F, 2H, 2I, 2L
+# Code Figure: 2C, 2D, 2E, 2F, 2H, 2I, 2J
 
 ###################
 ###################
@@ -177,8 +177,8 @@ head(data_cells[["umap"]]@cell.embeddings)
 Idents(data_cells) <- "desc_0.5"
 
 # UMAP split by treatment
-# FIGURE 2B
-pdf("FIG2_B.pdf", width = 25)
+# FIGURE 2C
+pdf("FIG2_C.pdf", width = 25)
 DimPlot(data_cells, reduction = "umap", split.by="Treatment", label = TRUE)
 dev.off()
 
@@ -342,8 +342,8 @@ dev.off()
 
 markers <- c("Tox","Tigit","Ctla4","Pdcd1","Havcr2","Entpd1","Mki67","Gzmb","Gzma","Gzmk","Zfp683","Cx3cr1","Tbx21","Klrg1","Ifng","Klrb1c","Nkg7","Runx3","Cd27","Il7r","Ccr7","Sell","Tcf7","Cd69","Itgae")
 
-# FIGURE 2L
-pdf("FIG2_L.pdf", width=13)
+# FIGURE 2J
+pdf("FIG2_J.pdf", width=13)
 DotPlot(tcells_clean, features = markers) + RotatedAxis()
 dev.off()
 
